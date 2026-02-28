@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import LogoAvatar from "../componentes/LogoAvatar";
-import logo from "../assets/calendario.png"
+import logo from "../assets/logo.png"
 
 
 export default function Home() {

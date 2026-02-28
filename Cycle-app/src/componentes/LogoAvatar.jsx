@@ -6,7 +6,7 @@ export default function LogoAvatar({
 }) {
   return (
     <div
-      className={`${sizeClass} flex items-center justify-center overflow-hidden rounded-full`}
+      className={`${sizeClass} flex items-center justify-center overflow-hidden rounded-full bg-gray-100 `}
       aria-label={alt}
     >
       {src ? (
