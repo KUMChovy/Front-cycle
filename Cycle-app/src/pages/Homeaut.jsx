@@ -4,7 +4,7 @@ import LogoAvatar from "../componentes/LogoAvatar";
 import logo from "../assets/calendario.png"
 
 
-export default function Home() {
+export default function HomeAut() {
   const navigate = useNavigate();
 
   return (
@@ -30,7 +30,7 @@ export default function Home() {
           <header className="mb-6 sm:mb-8 flex items-center gap-3">
 
             <LogoAvatar
-              src={logo}
+              src={logo}         
               alt="Logo Cycle"
               fallback="C"
             />
@@ -53,49 +53,20 @@ export default function Home() {
           <button
             onClick={() => navigate("/register")}
             className="
-    mt-6 sm:mt-8 w-full rounded-full bg-white/90 px-6 py-4
-    flex items-center justify-between
-    font-semibold text-black
-    shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-    backdrop-blur
-    transition-all duration-300
-    hover:bg-pink-400 hover:text-white
-    hover:shadow-[0_14px_40px_rgba(251,113,133,0.45)]
-    active:scale-[0.99]
-    focus:outline-none focus:ring-4 focus:ring-pink-200
-  "
+              mt-6 sm:mt-8 w-full rounded-full bg-white/90 px-6 py-4
+              flex items-center justify-between
+              shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur transition
+              hover:shadow-[0_14px_40px_rgba(0,0,0,0.12)] active:scale-[0.99]
+              focus:outline-none focus:ring-4 focus:ring-pink-200
+            "
           >
-            <span className="text-base sm:text-xl font-semibold">
-              Inicia
-            </span>
-
-            <span
-              className="
-      flex h-10 w-10 items-center justify-center
-      rounded-full bg-pink-100 text-xl text-black
-      transition-colors duration-300
-      group-hover:bg-white/90
-    "
-            >
+            <span className="text-base sm:text-xl font-semibold text-black">Inicia</span>
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-100 text-xl text-black">
               →
             </span>
           </button>
 
-          <div className="mt-3 sm:mt-4 flex items-center justify-center gap-3 text-xs sm:text-sm text-black/60">
-            <button
-              onClick={() => navigate("/register")}
-              className="underline decoration-pink-400/60 underline-offset-4 hover:text-black"
-            >
-              Crear cuenta
-            </button>
-            <span className="opacity-40">•</span>
-            <button
-              onClick={() => navigate("/login")}
-              className="underline decoration-pink-400/60 underline-offset-4 hover:text-black"
-            >
-              Ya tengo cuenta
-            </button>
-          </div>
+
         </div>
       </div>
     </div>
