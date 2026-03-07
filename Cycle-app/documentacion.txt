@@ -31,3 +31,4 @@ para que los datos de la sesión se arrastren, invoca "sesion();" al cargar la p
 - git add . (agrega todos los cambios que hayan hecho)
 - git commit -m "nombre commit" (le dan nombre a sus cambios)
 - git push (sube sus cambios)
+- git pull (recibir cambios realizados a tu computadora xd)
