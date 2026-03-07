@@ -12,3 +12,9 @@ acuerdense de estar dentro de la carpeta de cycle weyes
 =================== Instalacion de google auth ==========================
 
 npm install @react-oauth/google
+
+=================== Inicialización del logout ==========================
+
+import { logout } from "../componentes/funciones/logout";
+
+se usa como una propiedad tipo "onclick={logout}" de un botón
