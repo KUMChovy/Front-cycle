@@ -76,10 +76,27 @@ export default function Test1() {
             id: 7,
             title: "¿Deseas recibir avisos de días fértiles u ovulación?",
             options: [
-                "Dolor menstrual",
-                "Cambios de humor",
-                "Fatiga",
-                "Migraña",
+                "Si",
+                "No"
+            ],
+        },
+
+        {
+            id: 8,
+            title: "Ingresa tú edad a qui luego lo acabo ",
+            options: [
+                "Si",
+                "No"
+            ],
+        },
+        {
+            id: 9,
+            title: "¿Para qué deseas usar Cycle principalmente?",
+            options: [
+                "Seguimiento del ciclo",
+                "Conocer mis días fértiles",
+                "Entender mejor mis síntomas",
+                "Auto cuidado y bienestar"
             ],
         },
     ];
