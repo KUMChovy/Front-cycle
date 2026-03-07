@@ -3,6 +3,7 @@ export default function Imagen({
     alt = "Ilustración",
     heightClass = "h-[30svh] sm:h-[30svh]",
 }) {
+    
     return (
         <div
             className={`

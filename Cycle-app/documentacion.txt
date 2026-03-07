@@ -1,0 +1,14 @@
+
+====================Instalcion de tailwindcss ==========================
+npm install -D tailwindcss@3.4.1 postcss autoprefixer
+>> npx tailwindcss init -p
+
+===================Instalcion de router de react y axios================
+npm i react-router-dom axios
+
+los que estan apartir de aqui todos cuando inicien el repositorio los tienen que correr
+acuerdense de estar dentro de la carpeta de cycle weyes
+
+=================== Instalacion de google auth ==========================
+
+npm install @react-oauth/google

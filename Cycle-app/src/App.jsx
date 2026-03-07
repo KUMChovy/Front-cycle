@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-import HomeAut from "./pages/Homeaut";
+import HomeAut from "./pages/Bienvenida";
 import Login from "./pages/Login";
 import Recuperacion from "./pages/RecuperacionCon";
 import Test from "./pages/Cuestionario/Test1"
+
 
 function App() {
   return (
@@ -15,8 +16,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recuperacion" element={<Recuperacion />} />
-
-
         <Route path="/test" element={<Test />} />
 
       </Routes>

@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
 import LogoAvatar from "../componentes/LogoAvatar";
-import logo from "../assets/calendario.png"
+import logo from "../assets/logo.png"
+import Imagen from "../componentes/Imagen";
 
 
 export default function HomeAut() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed inset-0 overflow-hidden bg-[#FCE7F3]">      {/* ===== Background ===== */}
+    <div className="fixed inset-0 overflow-hidden bg-[#FCE7F3]">
+      {/* ===== Background ===== */}
       <div className="pointer-events-none absolute -top-24 left-0 h-[340px] w-full rounded-b-[90px] bg-[#FBCFE8]/90" />
       <div className="pointer-events-none absolute -right-44 top-16 h-[520px] w-[520px] rounded-full bg-[#F9A8D4]/55" />
       <div className="pointer-events-none absolute -bottom-64 -left-56 h-[600px] w-[760px] rounded-full bg-[#FBCFE8]/75" />
@@ -28,30 +30,29 @@ export default function HomeAut() {
         <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl">
           {/* Header */}
           <header className="mb-6 sm:mb-8 flex items-center gap-3">
-
             <LogoAvatar
-              src={logo}         
+              src={logo}
               alt="Logo Cycle"
               fallback="C"
             />
-
             <div className="leading-tight">
-              <h1 className="text-base sm:text-lg font-semibold text-black">Cycle</h1>
+              <h1 className="text-base sm:text-lg font-semibold text-black">
+                Cycle
+              </h1>
             </div>
           </header>
 
           <h2 className="text-balance font-black tracking-tight text-black leading-[0.95] text-[clamp(1.85rem,4.6vw,3.4rem)]">
-            Por qué tú <br />
-            cuerpo tiene la <br />
-            razón
+            Bienvenida
           </h2>
 
+
           <p className="mt-3 sm:mt-4 max-w-md text-pretty text-sm sm:text-lg text-black/60">
-            Escucha tu cuerpo, registra tu ciclo y toma decisiones con más claridad.
+            Gracias por estar aquí. Tu bienestar comienza contigo.
           </p>
 
           <button
-            onClick={() => navigate("/register")}
+            onClick={() => navigate("/test")}
             className="
               mt-6 sm:mt-8 w-full rounded-full bg-white/90 px-6 py-4
               flex items-center justify-between
@@ -60,13 +61,13 @@ export default function HomeAut() {
               focus:outline-none focus:ring-4 focus:ring-pink-200
             "
           >
-            <span className="text-base sm:text-xl font-semibold text-black">Inicia</span>
+            <span className="text-base sm:text-xl font-semibold text-black">
+              Continuar
+            </span>
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-100 text-xl text-black">
               →
             </span>
           </button>
-
-
         </div>
       </div>
     </div>
