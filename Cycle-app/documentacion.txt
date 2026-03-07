@@ -22,3 +22,12 @@ se usa como una propiedad tipo "onclick={logout}" de un botón
 import { sesion } from "../componentes/funciones/sesion";
 
 para que los datos de la sesión se arrastren, invoca "sesion();" al cargar la página
+
+
+=================== Por si ocupan comandos git son estos xd ==========================
+
+- git clone (link de cualquiera de los 2 enlaces ya sea front o back)
+- cd (direcctorio donde hayan clonado sus archivos )
+- git add . (agrega todos los cambios que hayan hecho)
+- git commit -m "nombre commit" (le dan nombre a sus cambios)
+- git push (sube sus cambios)
