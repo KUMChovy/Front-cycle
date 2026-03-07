@@ -1,86 +1,128 @@
 import { useState } from "react";
-import LogoAvatar from "../../componentes/LogoAvatar";
-import logo from "../../assets/calendario.png";
+import { useNavigate } from "react-router-dom";
+import QuestionScreen from "./PantallaTest";
 
 export default function Test1() {
-    const [selected, setSelected] = useState(null);
+    const navigate = useNavigate();
 
-    const options = [
-        "Saber solo mis días",
-        "Control del ciclo",
-        "Seguir mi ciclo",
-        "Quedar embarazada",
+    const questions = [
+        {
+            id: 1,
+            title: "¿Cuál es tu objetivo con Cycle?",
+            options: [
+                "Saber solo mis días",
+                "Control del ciclo",
+                "Seguir mi ciclo",
+                "Quedar embarazada"
+            ],
+        },
+        {
+            id: 2,
+            title: "Aca va lo del calendario",
+            options: [
+                "Todos los días",
+                "Varias veces a la semana",
+                "Solo cuando lo necesite"
+            ],
+        },
+        {
+            id: 3,
+            title: "¿Cuántos días dura normalmente tu periodo?",
+            options: [
+                "3 dias a 5 dias",
+                "3 dias a 7 dias",
+                "No estoy segura"
+            ],
+        },
+        {
+            id: 4,
+            title: "¿Cada cuándo te baja el periodo aproximadamente?",
+            options: [
+                "Cada21 – 24días",
+                "Cada25 – 28días",
+                "Más de 32 díass",
+                "Soy irregular",
+                "Noestoy segura"
+            ],
+        },
+        {
+            id: 5,
+            title: "¿Tú ciclo suele ser regular?",
+            options: [
+                "Si",
+                "No",
+                "Noestoy segura"
+            ],
+        },
+        {
+            id: 6,
+            title: "¿Qué síntomas sueles presentar durante tu ciclo?",
+            options: [
+                "Dolor menstrual",
+                "Cambios de humor",
+                "Fatiga",
+                "Migraña"
+            ],
+        },
+        {
+            id: 6,
+            title: "¿Deseas recibir recordatorios del inicio de tu periodo?",
+            options: [
+                "Si",
+                "No"
+            ],
+        },
+        {
+            id: 7,
+            title: "¿Deseas recibir avisos de días fértiles u ovulación?",
+            options: [
+                "Dolor menstrual",
+                "Cambios de humor",
+                "Fatiga",
+                "Migraña",
+            ],
+        },
     ];
 
+    const [current, setCurrent] = useState(0);
+    const [answers, setAnswers] = useState({});
+
+    const handleAnswer = (value) => {
+        const q = questions[current];
+
+        setAnswers((prev) => ({
+            ...prev,
+            [q.id]: value,
+        }));
+
+        if (current < questions.length - 1) {
+            setCurrent((prev) => prev + 1);
+        } else {
+            console.log("Respuestas finales:", {
+                ...answers,
+                [q.id]: value,
+            });
+            navigate("/home");
+        }
+    };
+
+    const handleBack = () => {
+        if (current > 0) {
+            setCurrent((prev) => prev - 1);
+        }
+    };
+
+    const currentQuestion = questions[current];
+    const currentAnswer = answers[currentQuestion.id] ?? null;
+
     return (
-        <div className="fixed inset-0 overflow-hidden bg-[#FCE7F3]">
-            {/* ===== Background  ===== */}
-            <div className="pointer-events-none absolute -top-24 left-0 h-[340px] w-full rounded-b-[90px] bg-[#FBCFE8]/90" />
-            <div className="pointer-events-none absolute -right-44 top-16 h-[520px] w-[520px] rounded-full bg-[#F9A8D4]/55" />
-            <div className="pointer-events-none absolute -bottom-64 -left-56 h-[600px] w-[760px] rounded-full bg-[#FBCFE8]/75" />
-
-            <div
-                className="
-          relative flex h-full w-full items-center justify-center
-          px-6 sm:px-10
-          pt-[calc(env(safe-area-inset-top)+16px)]
-          pb-[calc(env(safe-area-inset-bottom)+16px)]
-        "
-            >
-                <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl">
-                    {/* ===== Header  ===== */}
-                    <header className="mb-10 flex items-center gap-3">
-                        <LogoAvatar src={logo} alt="Logo Cycle" fallback="C" />
-                        <div className="leading-tight">
-                            <h1 className="text-base sm:text-lg font-semibold text-black">
-                                Cycle
-                            </h1>
-                        </div>
-                    </header>
-
-                    {/* ===== Pregunta ===== */}
-                    <h2 className="mb-10 text-center text-balance font-black tracking-tight text-black leading-[1.05] text-[clamp(1.6rem,4.5vw,2.6rem)]">
-                        ¿Cuál es tu <br />
-                        objetivo con <br />
-                        Cycle?
-                    </h2>
-
-                    {/* ===== Opciones ===== */}
-                    <div className="flex flex-col gap-4">
-                        {options.map((option, index) => {
-                            const isActive = selected === index;
-
-                            return (
-                                <button
-                                    key={option}
-                                    onClick={() => setSelected(index)}
-                                    className={`
-                    w-full rounded-full px-6 py-4 text-center
-                    text-sm sm:text-base font-semibold
-                    transition-all duration-300
-                    ${isActive
-                                            ? "bg-pink-400 text-white shadow-[0_14px_40px_rgba(251,113,133,0.45)]"
-                                            : "bg-white/90 text-black shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
-                                        }
-                    hover:shadow-[0_12px_32px_rgba(251,113,133,0.35)]
-                    active:scale-[0.98]
-                    focus:outline-none focus:ring-4 focus:ring-pink-200
-                  `}
-                                >
-                                    {option}
-                                </button>
-                            );
-                        })}
-                    </div>
-
-                    {/* Indicador de progreso */}
-                    <div className="mt-10 flex justify-center gap-2">
-                        <span className="h-2 w-6 rounded-full bg-pink-400" />
-                        <span className="h-2 w-2 rounded-full bg-pink-200" />
-                        <span className="h-2 w-2 rounded-full bg-pink-200" />
-                    </div>
-                </div>
-            </div>
-        </div>
+        <QuestionScreen
+            question={currentQuestion}
+            current={current}
+            total={questions.length}
+            selectedAnswer={currentAnswer}
+            onAnswer={handleAnswer}
+            onBack={handleBack}
+        />
     );
 }
