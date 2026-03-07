@@ -22,4 +22,4 @@ se usa como una propiedad tipo "onclick={logout}" de un botón
 =================== Persistencia de la sesión ==========================
 import { sesion } from "../componentes/funciones/sesion";
 
-para que los datos de la sesión se apliquen, invoca "sesion" al cargar la página
+para que los datos de la sesión se arrastren, invoca "sesion();" al cargar la página
