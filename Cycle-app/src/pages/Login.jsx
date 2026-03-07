@@ -29,6 +29,13 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "ok") {
+          //persistencia de datos de sesión en localStorage
+          localStorage.setItem("usuarioPHP",JSON.stringify({
+            id: data.usuario.id_usuario,
+            nombre: data.usuario.nombre,
+            email:data.usuario.email,
+            provider:"php" 
+        }));
           navigate("/Home");
         } else {
           alert(data.mensaje);
