@@ -47,6 +47,10 @@ npm install @react-oauth/google
 
 npm install @fullcalendar/react @fullcalendar/daygrid @fullcalendar/interaction
 
+=================== Instalacion de google maps ==========================
+
+npm install @react-google-maps/api
+
 =================== Inicialización del logout ==========================
 
 import { logout } from "../componentes/funciones/logout";
