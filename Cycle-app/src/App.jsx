@@ -4,8 +4,8 @@ import Register from "./pages/Register";
 import HomeAut from "./pages/Bienvenida";
 import Login from "./pages/Login";
 import Recuperacion from "./pages/RecuperacionCon";
-import Test from "./pages/Cuestionario/Test1"
-
+import Test from "./pages/Cuestionario/Test1";
+import Ciclo from "./pages/Cyclo/Seguimiento"
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/recuperacion" element={<Recuperacion />} />
         <Route path="/test" element={<Test />} />
-
+        <Route path="/ciclo" element={<Ciclo />} />      
       </Routes>
     </div>
   );
