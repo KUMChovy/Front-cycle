@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Template del fondo y content por si lo quieren usar 
 
  <div className="relative min-h-screen overflow-x-hidden">
@@ -28,6 +29,8 @@ Template del fondo y content por si lo quieren usar
 
 
 
+=======
+>>>>>>> 921f4271d20acb31ca3d559cc518284167389a78
 ====================Instalcion de tailwindcss ==========================
 npm install -D tailwindcss@3.4.1 postcss autoprefixer
 >> npx tailwindcss init -p
@@ -43,6 +46,29 @@ acuerdense de estar dentro de la carpeta de cycle weyes
 
 npm install @react-oauth/google
 
+<<<<<<< HEAD
 =================== Instalacion de api de callendar ==========================
 
 npm install @fullcalendar/react @fullcalendar/daygrid @fullcalendar/interaction
+=======
+=================== Inicialización del logout ==========================
+
+import { logout } from "../componentes/funciones/logout";
+
+se usa como una propiedad tipo "onclick={logout}" de un botón
+
+=================== Persistencia de la sesión ==========================
+import { sesion } from "../componentes/funciones/sesion";
+
+para que los datos de la sesión se arrastren, invoca "sesion();" al cargar la página
+
+
+=================== Por si ocupan comandos git son estos xd ==========================
+
+- git clone (link de cualquiera de los 2 enlaces ya sea front o back)
+- cd (direcctorio donde hayan clonado sus archivos )
+- git add . (agrega todos los cambios que hayan hecho)
+- git commit -m "nombre commit" (le dan nombre a sus cambios)
+- git push (sube sus cambios)
+- git pull (recibir cambios realizados a tu computadora xd)
+>>>>>>> 921f4271d20acb31ca3d559cc518284167389a78
