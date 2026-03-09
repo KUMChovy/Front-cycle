@@ -2,6 +2,7 @@ import { useState } from "react"
 import Calendario from "../../componentes/Calendario/Calendario"
 import Modal from "../../componentes/Modals/Modal"
 import { usarSeguimientoCiclo } from "../../componentes/Calendario/useCalendario"
+import { sesion } from "../../componentes/funciones/sesion"
 
 // Sintomas
 const OPCIONES_SINTOMAS = [
@@ -10,6 +11,7 @@ const OPCIONES_SINTOMAS = [
 ]
 
 export default function PaginaCiclo() {
+    sesion();
     const {
         inicioCiclo,
         eventos,

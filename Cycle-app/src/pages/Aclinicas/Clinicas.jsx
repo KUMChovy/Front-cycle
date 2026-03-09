@@ -3,7 +3,7 @@ import { GoogleMap, Marker, InfoWindow, useLoadScript } from "@react-google-maps
 import { sesion } from "../../componentes/funciones/sesion";
 
 export default function Example() {
-    sesion()
+    sesion();
     const [clinics, setClinics] = useState([]);
     const [selectedClinic, setSelectedClinic] = useState(null);
     const mapRef = useRef(null);
