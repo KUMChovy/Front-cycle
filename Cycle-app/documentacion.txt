@@ -73,4 +73,27 @@ para que los datos de la sesión se arrastren, invoca "sesion();" al cargar la p
 - git pull (recibir cambios realizados a tu computadora xd)(siempre abras tu archivo ejecuta el pull)
 
 
+insercion de consultas(Prueba)
+INSERT INTO clinicas (id_clinica, nombre, direccion, telefono, latitud, longitud)
+VALUES
+(1,
+'Clínica IMSS UMF 75 Nezahualcóyotl',
+'Av. Pantitlán 180, Col. Evolución, Nezahualcóyotl, Estado de México',
+'8006812525',
+19.4009,
+-99.0403),
+
+(2,
+'Hospital General La Perla',
+'Av. Tepozanes s/n, Col. La Perla, Nezahualcóyotl, Estado de México',
+'5557923100',
+19.3925,
+-99.0156),
+
+(3,
+'Centro de Salud Benito Juárez',
+'Calle Cielito Lindo, Col. Benito Juárez, Nezahualcóyotl, Estado de México',
+'5557324410',
+19.4103,
+-99.0305);
 
