@@ -86,9 +86,36 @@ export default function Register() {
           }
         ).then((res) => res.json());
 
-        localStorage.setItem("usuarioGoogle", JSON.stringify(userInfo));
+        // enviar datos a la API de registro
+        const response = await fetch(
+          "http://localhost/cycle_back/modelo/registro_api.php",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              nombre: userInfo.name,
+              email: userInfo.email,
+              password: "google_user",
+              auth: "google"
+            }),
+          }
+        );
 
-        navigate("/Home");
+        const data = await response.json();
+
+        console.log(data);
+
+        if (data.status === "ok" || data.status === "existe") {
+
+          localStorage.setItem("usuarioGoogle", JSON.stringify(userInfo));
+
+          navigate("/Home");
+
+        } else {
+          alert("Error registrando usuario con Google");
+        }
       } catch{
         alert("Error obteniendo datos de Google");
       }
