@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useGoogleLogin } from "@react-oauth/google";
 
 import calendario from "../assets/calendario.png";
 import Imagen from "../componentes/Imagen";
@@ -72,6 +73,31 @@ export default function Register() {
     }
   };
 
+  //Login con Google
+  const loginGoogle = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        const userInfo = await fetch(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${tokenResponse.access_token}`,
+            },
+          }
+        ).then((res) => res.json());
+
+        localStorage.setItem("usuarioGoogle", JSON.stringify(userInfo));
+
+        navigate("/Home");
+      } catch{
+        alert("Error obteniendo datos de Google");
+      }
+    },
+    onError: () => {
+      alert("Error al iniciar sesión con Google");
+    },
+  });
+
   return (
     <div className="fixed inset-0 overflow-hidden bg-[#FCE7F3]">
       <div className="pointer-events-none absolute -top-24 left-0 h-[340px] w-full rounded-b-[90px] bg-[#FBCFE8]/90" />
@@ -100,7 +126,7 @@ export default function Register() {
 
           <div className="mb-6 flex items-center justify-center gap-4">
             <button
-            
+              onClick={() => loginGoogle()}
               className="
                 flex h-20 w-20 items-center justify-center
                 rounded-full bg-white/90
