@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import QuestionScreen from "./PantallaTest";
+import { sesion } from "../../componentes/funciones/sesion";
 
 export default function Test1() {
+    sesion();
     const navigate = useNavigate();
 
     const questions = [

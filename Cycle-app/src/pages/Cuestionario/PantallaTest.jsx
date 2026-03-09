@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LogoAvatar from "../../componentes/LogoAvatar";
 import logo from "../../assets/calendario.png";
+import { sesion } from "../../componentes/funciones/sesion";
 
 export default function QuestionScreen({
     question,

@@ -5,6 +5,7 @@ import logo from "../assets/logo.png"
 
 
 export default function Home() {
+  sesion();
   const navigate = useNavigate();
 
   return (

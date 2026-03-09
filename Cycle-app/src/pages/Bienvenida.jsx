@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import LogoAvatar from "../componentes/LogoAvatar";
 import logo from "../assets/logo.png"
 import Imagen from "../componentes/Imagen";
+import { sesion } from "../componentes/funciones/sesion";
 
 
 export default function HomeAut() {
+  sesion();
   const navigate = useNavigate();
 
   return (
