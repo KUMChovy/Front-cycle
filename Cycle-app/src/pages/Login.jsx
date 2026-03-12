@@ -59,9 +59,41 @@ export default function Login() {
           }
         ).then((res) => res.json());
 
-        localStorage.setItem("usuarioGoogle", JSON.stringify(userInfo));
+        const response = await fetch(
+          "http://localhost/cycle_back/modelo/login_api.php",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: userInfo.email,
+              auth: "google"
+            }),
+          }
+        );
 
-        navigate("/Home");
+        const data = await response.json();
+
+        if (data.status === "ok") {
+
+          localStorage.setItem(
+            "usuarioGoogle",
+            JSON.stringify({
+              id: data.usuario.id,
+              nombre: data.usuario.nombre,
+              email: data.usuario.email,
+              provider: "google",
+            })
+          );
+
+          navigate("/Home");
+
+        } else {
+
+          alert("Este correo no está registrado. Regístrate primero.");
+
+        }
       } catch{
         alert("Error obteniendo datos de Google");
       }
