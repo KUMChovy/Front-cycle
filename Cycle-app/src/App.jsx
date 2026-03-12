@@ -7,6 +7,7 @@ import Recuperacion from "./pages/RecuperacionCon";
 import Test from "./pages/Cuestionario/Test1";
 import Ciclo from "./pages/Cyclo/Seguimiento"
 import Clinicas from "./pages/Aclinicas/Clinicas";  
+import Perfil from "./pages/Perfil";  
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/recuperacion" element={<Recuperacion />} />
         <Route path="/test" element={<Test />} />
         <Route path="/ciclo" element={<Ciclo />} /> 
-        <Route path="/clinicas" element={<Clinicas />} />      
+        <Route path="/clinicas" element={<Clinicas />} />     
+        <Route path="/perfil" element={<Perfil />} /> 
       </Routes>
     </div>
   );
