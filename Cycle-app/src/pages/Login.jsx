@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useGoogleLogin } from "@react-oauth/google"; 
+import { useGoogleLogin } from "@react-oauth/google";
+import { sesion } from "../componentes/funciones/sesion"; 
 
 import calendario from "../assets/calendario.png";
 import Imagen from "../componentes/Imagen";
 
 export default function Login() {
+  sesion();
   const navigate = useNavigate();
 
   // 🔹 Estados

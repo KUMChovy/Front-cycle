@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { logout } from "../componentes/funciones/logout";
+import { sesion } from "../componentes/funciones/sesion";
+
 
 export default function Perfil() {
+  sesion();
   const navigate = useNavigate();
 
   return (
@@ -58,16 +62,17 @@ export default function Perfil() {
         <div className="space-y-3">
 
           {[
-              { texto: "Ajustes de Aplicación", icono: "⚙️" },
-              { texto: "Ocultar contenido", icono: "🙈" },
-              { texto: "Acceso Seguro", icono: "🔒" },
-              { texto: "Recordatorios", icono: "⏰" },
-              { texto: "Ajustes de privacidad", icono: "🛡️" },
-              { texto: "Suscripción Premium", icono: "👑" },
-              { texto: "Cerrar sesión", icono: "🚪" },
+              { texto: "Ajustes de Aplicación", icono: "⚙️", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Ocultar contenido", icono: "🙈", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Acceso Seguro", icono: "🔒", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Recordatorios", icono: "⏰", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Ajustes de privacidad", icono: "🛡️", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Suscripción Premium", icono: "👑", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Cerrar sesión", icono: "🚪", accion:()=>logout() },
           ].map((item, index) => (
               <button
                   key={index}
+                  onClick={item.accion}
                   className="
                   w-full
                   flex items-center justify-between
