@@ -57,40 +57,42 @@ export default function Perfil() {
           {/* ===== Lista de opciones ===== */}
         <div className="space-y-3">
 
-        {[
-            { texto: "Ajustes de Aplicación", icono: "⚙️" },
-            { texto: "Ocultar contenido", icono: "🙈" },
-            { texto: "Acceso Seguro", icono: "🔒" },
-            { texto: "Recordatorios", icono: "⏰" },
-            { texto: "Ajustes de privacidad", icono: "🛡️" },
-            { texto: "Suscripción Premium", icono: "👑" },
-            { texto: "Cerrar sesión", icono: "🚪" },
-        ].map((item, index) => (
-            <div
-            key={index}
-            className="
-            flex items-center justify-between
-            rounded-xl bg-white/80 px-4 py-3
-            shadow-sm backdrop-blur
-            "
-            >
-            <div className="flex items-center gap-3">
+          {[
+              { texto: "Ajustes de Aplicación", icono: "⚙️" },
+              { texto: "Ocultar contenido", icono: "🙈" },
+              { texto: "Acceso Seguro", icono: "🔒" },
+              { texto: "Recordatorios", icono: "⏰" },
+              { texto: "Ajustes de privacidad", icono: "🛡️" },
+              { texto: "Suscripción Premium", icono: "👑" },
+              { texto: "Cerrar sesión", icono: "🚪" },
+          ].map((item, index) => (
+              <button
+                  key={index}
+                  className="
+                  w-full
+                  flex items-center justify-between
+                  rounded-xl bg-white/80 px-4 py-3
+                  shadow-sm backdrop-blur
+                  text-left
+                  "
+              >
+                  <div className="flex items-center gap-3">
 
-                <span className="text-lg">
-                {item.icono}
-                </span>
+                      <span className="text-lg">
+                          {item.icono}
+                      </span>
 
-                <span className="text-sm font-medium text-black">
-                {item.texto}
-                </span>
+                      <span className="text-sm font-medium text-black">
+                          {item.texto}
+                      </span>
 
-            </div>
+                  </div>
 
-            <span className="text-black/40">›</span>
-            </div>
-        ))}
+                  <span className="text-black/40">›</span>
+              </button>
+          ))}
 
-        </div>
+          </div>
 
 
         </div>
