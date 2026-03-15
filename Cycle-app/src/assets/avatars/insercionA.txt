@@ -1,0 +1,13 @@
+INSERT INTO avatar (id_avatar, avatar) VALUES
+(1, 'Designer1.png'),
+(2, 'Designer2.png'),
+(3, 'Designer3.png'),
+(4, 'Designer4.png'),
+(5, 'Designer5.png'),
+(6, 'Designer6.png'),
+(7, 'Designer7.png'),
+(8, 'Designer8.png'),
+(9, 'Designer9.png'),
+(10, 'Designer10.png'),
+(11, 'Designer11.png'),
+(12, 'Designer12.png');

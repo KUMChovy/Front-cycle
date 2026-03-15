@@ -7,7 +7,7 @@ import calendario from "../assets/calendario.png";
 import Imagen from "../componentes/Imagen";
 
 export default function Register() {
-  sesion();
+  
   const navigate = useNavigate();
 
   const [nombre, setNombre] = useState("");

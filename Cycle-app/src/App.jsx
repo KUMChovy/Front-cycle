@@ -8,6 +8,7 @@ import Test from "./pages/Cuestionario/Test1";
 import Ciclo from "./pages/Cyclo/Seguimiento"
 import Clinicas from "./pages/Aclinicas/Clinicas";  
 import Perfil from "./pages/Perfil";  
+import Avatar from "./pages/SAvatar/Avatar";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/ciclo" element={<Ciclo />} /> 
         <Route path="/clinicas" element={<Clinicas />} />     
         <Route path="/perfil" element={<Perfil />} /> 
+        <Route path="/avatar" element={<Avatar />} /> 
       </Routes>
     </div>
   );

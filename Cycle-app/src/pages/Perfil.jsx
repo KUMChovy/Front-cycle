@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { logout } from "../componentes/funciones/logout";
 import { sesion } from "../componentes/funciones/sesion";
+import UserAvatar from "../componentes/UserAvatar";
 
 
 export default function Perfil() {
@@ -36,7 +37,7 @@ export default function Perfil() {
           {/* ===== Tarjeta usuario ===== */}
           <div className="mb-6 flex items-center gap-4 rounded-3xl bg-black/30 px-6 py-4 backdrop-blur">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black/20">
-              👤
+             <UserAvatar />
             </div>
 
             <div>

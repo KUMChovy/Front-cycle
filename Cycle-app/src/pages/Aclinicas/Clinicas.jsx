@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { GoogleMap, Marker, InfoWindow, useLoadScript } from "@react-google-maps/api";
 import { sesion } from "../../componentes/funciones/sesion";
 
-export default function Example() {
+export default function Clinicas() {
     sesion();
     const [clinics, setClinics] = useState([]);
     const [selectedClinic, setSelectedClinic] = useState(null);
