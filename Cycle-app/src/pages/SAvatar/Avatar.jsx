@@ -10,7 +10,7 @@ export default function Avatar() {
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState({ type: null, text: "" });
   const canSave = !!selectedSticker && !saving;
-  
+
   const handleBack = useCallback(() => {
     history.back();
   }, []);
@@ -19,8 +19,8 @@ export default function Avatar() {
     if (!selectedSticker) return;
 
     const usuario =
-    JSON.parse(localStorage.getItem("usuarioPHP")) ||
-    JSON.parse(localStorage.getItem("usuarioGoogle"));
+      JSON.parse(localStorage.getItem("usuarioPHP")) ||
+      JSON.parse(localStorage.getItem("usuarioGoogle"));
 
     setSaving(true);
     setSaveMsg({ type: null, text: "" });
@@ -35,13 +35,13 @@ export default function Avatar() {
         body: JSON.stringify({
           id_usuario: usuario.id,   // Aqui tambien cambia lo del ID de usuario
           id_avatar: selectedSticker.id
-          
+
         })
       });
 
       const data = await response.json();
 
-       console.log(data);
+      console.log(data);
 
       if (data.status === "ok") {
         setSaveMsg({ type: "ok", text: "¡Avatar guardado!" });
@@ -122,22 +122,7 @@ export default function Avatar() {
 
           {/* Paleta de colores */}
           <div className="mt-5 flex items-center gap-4">
-            {PALETTE.map((c) => {
-              const selected = baseColor === c.hex;
-              return (
-                <button
-                  key={c.id}
-                  type="button"
-                  onClick={() => setBaseColor(c.hex)}
-                  aria-label={`Color ${c.id}`}
-                  className={`
-                    h-9 w-9 rounded-full ring-2 transition
-                    ${selected ? "ring-rose-500 scale-105" : "ring-white/70 hover:ring-rose-300"}
-                  `}
-                  style={{ backgroundColor: c.hex }}
-                />
-              );
-            })}
+            <div className="mt-5 border-t border-rose-200/70" />
           </div>
         </section>
 
@@ -220,10 +205,7 @@ function AvatarSilhouette({ className = "h-20 w-20", color = "currentColor" }) {
 
 // Paleta de colores
 const PALETTE = [
-  { id: "mauve", hex: "#BE6E8C" },
-  { id: "ice", hex: "#DDE6EF" },
-  { id: "mint", hex: "#67C18D" },
-  { id: "slate", hex: "#3B4C72" },
+  { id: "ice", hex: "#F472B6" },
 ];
 const USE_EMOJI_FALLBACK = false;
 
