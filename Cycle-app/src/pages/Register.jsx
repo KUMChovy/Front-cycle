@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
+import { sesion } from "../componentes/funciones/sesion";
 
 import calendario from "../assets/calendario.png";
 import Imagen from "../componentes/Imagen";
