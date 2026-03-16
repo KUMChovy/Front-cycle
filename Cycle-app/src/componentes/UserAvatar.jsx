@@ -6,15 +6,29 @@ export default function UserAvatar(){
 
   useEffect(()=>{
 
-    fetch("http://localhost/cycle_back/modelo/obtenerAvatar.php")
-      .then(res => res.json())
-      .then(data => {
+    const usuario =
+      JSON.parse(localStorage.getItem("usuarioPHP")) ||
+      JSON.parse(localStorage.getItem("usuarioGoogle"));
 
-        if(data.status === "ok"){
-          setAvatar(data.imagen);
-        }
+    fetch("http://localhost/cycle_back/modelo/obtenerAvatar.php",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({
+        id_usuario: usuario.id
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
 
-      });
+      console.log(data);
+
+      if(data.status === "ok"){
+        setAvatar(data.imagen);
+      }
+
+    });
 
   },[]);
 
