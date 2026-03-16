@@ -8,6 +8,10 @@ export default function Perfil() {
   sesion();
   const navigate = useNavigate();
 
+      const usuario =
+      JSON.parse(localStorage.getItem("usuarioPHP")) ||
+      JSON.parse(localStorage.getItem("usuarioGoogle"));
+
   return (
     <div className="fixed inset-0 overflow-hidden bg-[#FCE7F3]">
       {/* ===== Background ===== */}
@@ -35,14 +39,15 @@ export default function Perfil() {
           </button>
 
           {/* ===== Tarjeta usuario ===== */}
-          <div className="mb-6 flex items-center gap-4 rounded-3xl bg-black/30 px-6 py-4 backdrop-blur">
+          <div onClick={() => navigate("/avatar")}
+              className="mb-6 flex items-center gap-4 rounded-3xl bg-black/30 px-6 py-4 backdrop-blur">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black/20">
              <UserAvatar />
             </div>
 
             <div>
-              <p className="text-lg font-semibold text-black">Usuario</p>
-              <p className="text-sm text-black/60">correo</p>
+              <p className="text-lg font-semibold text-black">{usuario.nombre}</p>
+              <p className="text-sm text-black/60">{usuario.email}</p>
             </div>
           </div>
 

@@ -7,6 +7,7 @@ import calendario from "../assets/calendario.png";
 import Imagen from "../componentes/Imagen";
 
 export default function Register() {
+  sesion()
   
   const navigate = useNavigate();
 
@@ -109,12 +110,16 @@ export default function Register() {
 
         console.log(data);
 
-        if (data.status === "ok" || data.status === "existe") {
+        if (data.status === "ok") {
+          alert("Registro con Google exitoso. Ahora inicia sesión.");
+          navigate("/login");
+          return;
+        }
 
-          localStorage.setItem("usuarioGoogle", JSON.stringify(userInfo));
-
-          navigate("/Home");
-
+        if (data.status === "existe") {
+          alert("Este correo ya está registrado. Inicia sesión.");
+          navigate("/login");
+          return;
         } else {
           alert("Error registrando usuario con Google");
         }
