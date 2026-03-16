@@ -33,10 +33,10 @@ export default function Login() {
         if (data.status === "ok") {
           //persistencia de datos de sesión en localStorage
           localStorage.setItem("usuarioPHP",JSON.stringify({
-            id: data.usuario.id_usuario,
+            id: data.usuario.id,
             nombre: data.usuario.nombre,
-            email:data.usuario.email,
-            provider:"php" 
+            email: data.usuario.email,
+            provider: "php"
         }));
           navigate("/Home");
         } else {
