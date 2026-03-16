@@ -32,7 +32,7 @@ export default function Perfil() {
 
           {/* Botón volver */}
           <button 
-            onClick={() => navigate("/Home")}
+            onClick={() => navigate("/ciclo")}
             className="mb-4 text-xl"
             >
             ←

@@ -12,10 +12,14 @@ export default function QuestionScreen({
     onBack,
 }) {
     const [selected, setSelected] = useState(null);
+    const [age, setAge] = useState(22);
 
-    // ✅ cuando cambia la pregunta, cargamos la respuesta guardada
     useEffect(() => {
         setSelected(selectedAnswer);
+
+        if (question.type === "age" && selectedAnswer) {
+            setAge(selectedAnswer);
+        }
     }, [selectedAnswer, question.id]);
 
     const handleSelect = (option) => {
@@ -24,6 +28,16 @@ export default function QuestionScreen({
         setTimeout(() => {
             onAnswer(option);
         }, 200);
+    };
+
+    const increaseAge = () => {
+        setAge((prev) => prev + 1);
+    };
+
+    const decreaseAge = () => {
+        if (age > 8) {
+            setAge((prev) => prev - 1);
+        }
     };
 
     return (
@@ -70,32 +84,71 @@ export default function QuestionScreen({
                         {question.title}
                     </h2>
 
-                    {/* Options */}
-                    <div className="flex flex-col gap-4">
-                        {question.options.map((option) => {
-                            const active = selected === option;
+                    {/* ================== PREGUNTA EDAD ================== */}
+                    {question.type === "age" ? (
+                        <div className="flex flex-col items-center gap-6">
 
-                            return (
-                                <button
-                                    key={option}
-                                    onClick={() => handleSelect(option)}
-                                    className={`
+                            <button
+                                onClick={increaseAge}
+                                className="text-6xl font-bold text-black"
+                            >
+                                ▲
+                            </button>
+
+                            <div className="text-center">
+                                <p className="text-xl text-black/40">{age - 1}</p>
+                                <p className="text-4xl font-bold text-black">{age}</p>
+                                <p className="text-xl text-black/40">{age + 1}</p>
+                            </div>
+
+                            <button
+                                onClick={decreaseAge}
+                                className="text-6xl font-bold text-black"
+                            >
+                                ▼
+                            </button>
+
+                            <button
+                                onClick={() => onAnswer(age)}
+                                className="
+                                mt-6 rounded-full px-10 py-3
+                                bg-white/90 text-black
+                                shadow-[0_6px_20px_rgba(0,0,0,0.08)]
+                                font-semibold
+                                "
+                            >
+                                Confirmar
+                            </button>
+
+                        </div>
+                    ) : (
+                        /* ================== OPCIONES NORMALES ================== */
+                        <div className="flex flex-col gap-4">
+                            {question.options.map((option) => {
+                                const active = selected === option;
+
+                                return (
+                                    <button
+                                        key={option}
+                                        onClick={() => handleSelect(option)}
+                                        className={`
                     w-full rounded-full px-6 py-4
                     text-sm sm:text-base font-semibold
                     transition-all duration-300
                     ${active
-                                            ? "bg-pink-400 text-white shadow-[0_14px_40px_rgba(251,113,133,0.45)]"
-                                            : "bg-white/90 text-black shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
-                                        }
+                                                ? "bg-pink-400 text-white shadow-[0_14px_40px_rgba(251,113,133,0.45)]"
+                                                : "bg-white/90 text-black shadow-[0_6px_20px_rgba(0,0,0,0.08)]"
+                                            }
                     active:scale-[0.98]
                     focus:outline-none focus:ring-4 focus:ring-pink-200
                   `}
-                                >
-                                    {option}
-                                </button>
-                            );
-                        })}
-                    </div>
+                                    >
+                                        {option}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    )}
 
                     {/* Progress */}
                     <div className="mt-10 flex justify-center gap-2">
