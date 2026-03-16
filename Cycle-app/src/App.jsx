@@ -9,6 +9,7 @@ import Ciclo from "./pages/Cyclo/Seguimiento"
 import Clinicas from "./pages/Aclinicas/Clinicas";  
 import Perfil from "./pages/Perfil";  
 import Avatar from "./pages/SAvatar/Avatar";
+import Biblioteca from "./pages/Biblioteca/Biblioteca";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/clinicas" element={<Clinicas />} />     
         <Route path="/perfil" element={<Perfil />} /> 
         <Route path="/avatar" element={<Avatar />} /> 
+        <Route path="/biblioteca" element={<Biblioteca/>}/>
       </Routes>
     </div>
   );

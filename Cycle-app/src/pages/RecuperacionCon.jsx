@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import calendario from "../assets/calendario.png";
 import Imagen from "../componentes/Imagen";
+import { sesion } from "../componentes/funciones/sesion";
 
 export default function ForgotPassword() {
+    sesion();
     const navigate = useNavigate();
 
     return (
