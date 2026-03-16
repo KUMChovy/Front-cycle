@@ -18,6 +18,10 @@ export default function Avatar() {
 
     if (!selectedSticker) return;
 
+    const usuario =
+    JSON.parse(localStorage.getItem("usuarioPHP")) ||
+    JSON.parse(localStorage.getItem("usuarioGoogle"));
+
     setSaving(true);
     setSaveMsg({ type: null, text: "" });
 
@@ -29,7 +33,7 @@ export default function Avatar() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          id_usuario: 0,   // Aqui tambien cambia lo del ID de usuario
+          id_usuario: usuario.id,   // Aqui tambien cambia lo del ID de usuario
           id_avatar: selectedSticker.id
           
         })
