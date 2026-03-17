@@ -3,6 +3,9 @@ import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import interactionPlugin from "@fullcalendar/interaction"
 import esLocale from "@fullcalendar/core/locales/es"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { sesion } from "../funciones/sesion";
 
 /**
  * Props:
@@ -13,17 +16,21 @@ import esLocale from "@fullcalendar/core/locales/es"
  * - renderizarEvento(info) (opcional)
  * - textoAyuda (opcional)
  */
-export default function Calendario({
+
+export default function Calendario(
+    {    
     eventos = [],
     alSeleccionarDia,
     alSolicitarReinicio,
     alSeleccionarEvento,
     renderizarEvento,
     textoAyuda = "Toca un día para continuar"
-}) {
+}) {    
+
     const refCalendario = useRef(null)
     const [tituloMes, setTituloMes] = useState("")
 
+    // ---- Funciones de navegación de mes ----
     const mesAnterior = () => {
         const api = refCalendario.current?.getApi()
         api?.prev()
@@ -36,17 +43,15 @@ export default function Calendario({
         setTituloMes(api?.view?.title || "")
     }
 
+    // ---- Funciones de click ----
     const alClickDia = (info) => {
         alSeleccionarDia?.(info.dateStr)
     }
 
     const alClickEvento = (info) => {
-        // evita navegación default
         info.jsEvent?.preventDefault?.()
         alSeleccionarEvento?.(info.event)
     }
-
-
 
     const renderDefault = (info) => {
         if (info.event.extendedProps?.type !== "symptom") return null
@@ -62,6 +67,24 @@ export default function Calendario({
         )
     }
 
+    // ---- Exportar PDF ----
+    const exportarPDF = () => {
+        sesion(); // verifica que haya sesión activa
+
+        const usuario = 
+            JSON.parse(localStorage.getItem("usuarioPHP")) || 
+            JSON.parse(localStorage.getItem("usuarioGoogle"));
+
+        if (!usuario || !usuario.email) {
+            alert("No se encontró usuario en sesión");
+            return;
+        }
+
+        window.open(
+            `http://localhost/cycle_back/control/pdf.php?correo=${encodeURIComponent(usuario.email)}`,
+            "_blank"
+        );
+    };
 
     return (
         <div className="w-full">
@@ -110,13 +133,21 @@ export default function Calendario({
                 />
             </div>
 
-            {/* Botón reiniciar */}
-            <div className="mt-4 flex justify-center">
+            {/* Botones Reiniciar y Exportar PDF */}
+            <div className="mt-4 flex items-center justify-between md:justify-center md:relative gap-4">
+                {/* Botón Reiniciar */}
                 <button
                     onClick={alSolicitarReinicio}
-                    className="rounded-2xl bg-[#E6A9B7] px-6 py-3 text-sm font-extrabold text-white shadow-lg transition hover:brightness-105 active:scale-95"
-                >
+                    className="rounded-2xl bg-[#E6A9B7] px-6 py-3 text-sm font-extrabold text-white shadow-lg transition hover:brightness-105 active:scale-95 md:mx-auto">
                     Reiniciar
+                </button>
+
+                {/* Botón Exportar PDF */}
+                <button
+                    onClick={exportarPDF}
+                    className="flex items-center gap-2 rounded-2xl bg-[#E6A9B7] px-6 py-3 text-sm font-extrabold text-white shadow-lg transition hover:brightness-105 active:scale-95 md:absolute md:right-0">
+                    <FontAwesomeIcon icon={faFilePdf} className="w-6 h-6" />
+                    Exportar PDF
                 </button>
             </div>
         </div>
