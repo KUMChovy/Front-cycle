@@ -20,15 +20,6 @@ export default function Test1() {
         },
         {
             id: 2,
-            title: "Aca va lo del calendario",
-            options: [
-                "Todos los días",
-                "Varias veces a la semana",
-                "Solo cuando lo necesite"
-            ],
-        },
-        {
-            id: 3,
             title: "¿Cuántos días dura normalmente tu periodo?",
             options: [
                 "3 dias a 5 dias",
@@ -37,7 +28,7 @@ export default function Test1() {
             ],
         },
         {
-            id: 4,
+            id: 3,
             title: "¿Cada cuándo te baja el periodo aproximadamente?",
             options: [
                 "Cada21 – 24días",
@@ -48,7 +39,7 @@ export default function Test1() {
             ],
         },
         {
-            id: 5,
+            id: 4,
             title: "¿Tú ciclo suele ser regular?",
             options: [
                 "Si",
@@ -57,7 +48,7 @@ export default function Test1() {
             ],
         },
         {
-            id: 6,
+            id: 5,
             title: "¿Qué síntomas sueles presentar durante tu ciclo?",
             options: [
                 "Dolor menstrual",
@@ -85,12 +76,10 @@ export default function Test1() {
 
         {
             id: 8,
-            title: "Ingresa tú edad a qui luego lo acabo ",
-            options: [
-                "Si",
-                "No"
-            ],
+            type: "age",
+            title: "Ingresa tu edad",
         },
+
         {
             id: 9,
             title: "¿Para qué deseas usar Cycle principalmente?",
