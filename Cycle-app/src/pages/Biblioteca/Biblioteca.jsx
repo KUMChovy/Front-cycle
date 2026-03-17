@@ -41,7 +41,10 @@ export default function Biblioteca(){
                     </div>
                 </header>
 
-<div className="mt-6 flex flex-col items-center gap-2 text-xs">       
+<div className="mt-6 flex flex-col items-center gap-2 text-xs">
+                              <h1 className="font-extrabold tracking-tight text-rose-900 text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[1.05]">
+                                
+                            </h1>       
                     <a
                       className="
                           mt-6 w-full rounded-full bg-white/90 px-6 py-4
@@ -54,7 +57,9 @@ export default function Biblioteca(){
                           active:scale-[0.98]
                           focus:outline-none focus:ring-4 focus:ring-pink-200
                         "
-                        href=""
+                        href="https://www.tuasaude.com/es/ciclo-menstrual/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                       Hormonas explicadas Fácil
                     </a>
@@ -70,7 +75,9 @@ export default function Biblioteca(){
                           active:scale-[0.98]
                           focus:outline-none focus:ring-4 focus:ring-pink-200
                         "
-                        href=""
+                        href="https://www.unicef.org/mexico/media/7206/file/Manual%20para%20facilitadoras%20y%20facilitadores.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                       Educación para primer ciclo
                     </a>
@@ -86,7 +93,9 @@ export default function Biblioteca(){
                           active:scale-[0.98]
                           focus:outline-none focus:ring-4 focus:ring-pink-200
                         "
-                        href=""
+                        href="https://www.cumlaudelab.com/mx/salud-intima/mitos-y-realidades-sobre-la-regla/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                       Mitos y Reailidades
                     </a>
