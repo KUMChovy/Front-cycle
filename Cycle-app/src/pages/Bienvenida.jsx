@@ -4,6 +4,7 @@ import LogoAvatar from "../componentes/LogoAvatar";
 import logo from "../assets/logo.png"
 import Imagen from "../componentes/Imagen";
 import { sesion } from "../componentes/funciones/sesion";
+import { validar } from "../componentes/funciones/validacion";
 
 
 export default function HomeAut() {
@@ -58,7 +59,7 @@ export default function HomeAut() {
           </p>
 
           <button
-            onClick={() => navigate("/test")}
+            onClick={validar}
             className="
               mt-6 sm:mt-8 w-full rounded-full bg-white/90 px-6 py-4
               flex items-center justify-between
