@@ -24,8 +24,8 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/ciclo" element={<Ciclo />} />
-          <Route path="/clinicas" element={<Clinicas />} />
-          <Route path="/biblioteca" element={<Biblioteca />} />
+            <Route path="/clinicas" element={<ProtectedPremium><Clinicas /></ProtectedPremium>} />  
+            <Route path="/biblioteca" element={<ProtectedPremium><Biblioteca /></ProtectedPremium>} />          
         </Route>
 
         <Route path="/chatcycle" element={
