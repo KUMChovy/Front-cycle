@@ -113,3 +113,24 @@ npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fo
 ---------------------------------nueva tabla de la bd ------------------------------------------------------
 CREATE TABLE recu_contraseñas ( id_reset INT AUTO_INCREMENT PRIMARY KEY, id_usuario INT NOT NULL, token_hash VARCHAR(255) NOT NULL, expires_at DATETIME NOT NULL, used TINYINT(1) NOT NULL DEFAULT 0, created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) );
 >>>>>>> 0305fae63d51cd347c50e965926ec58518dbac9f
+INSERT INTO sintomas (id_sintoma, nombre, descripcion) VALUES
+(1, 'Dolor menstrual', NULL),
+(2, 'Cambios de humor', NULL),
+(3, 'Fatiga', NULL),
+(4, 'Migraña', NULL),
+(5, 'ligero', 'Flujo ligero'),
+(6, 'moderado', 'Flujo moderado'),
+(7, 'fuerte', 'Flujo fuerte'),
+(8, 'intenso', 'Flujo intenso'),
+(9, 'bien', 'Me siento bien'),
+(10, 'triste', 'Me siento triste'),
+(11, 'rabia', 'Siento rabia'),
+(12, 'animo', 'Con ánimo'),
+(13, 'colicos', 'Cólicos'),
+(14, 'cabeza', 'Dolor de cabeza'),
+(15, 'migraña', 'Migraña'),
+(16, 'sin', 'Sin dolor'),
+(17, 'dulce', 'Antojo dulce'),
+(18, 'salado', 'Antojo salado'),
+(19, 'picante', 'Antojo picante'),
+(20, 'graso', 'Antojo graso');
