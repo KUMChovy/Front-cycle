@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { sesion } from "../../componentes/funciones/sesion";
+import { logout } from "../../componentes/funciones/logout";
 
 export default function AdminDashboardSvg() {
    sesion();
@@ -111,6 +112,7 @@ export default function AdminDashboardSvg() {
       {/* Botón de cerrar sesión (solo vista) */}
       <button
         type="button"
+        onClick={logout}
         className="
           inline-flex items-center
           rounded-full px-4 py-1.5
@@ -292,24 +294,7 @@ export default function AdminDashboardSvg() {
             </table>
           </div>
 
-          {/* TODO: Paginación (si hay muchas clínicas) */}
-          <div className="mt-4 flex items-center justify-end gap-2 text-sm">
-            <button
-              type="button"
-              className="rounded-full px-3 py-1 bg-white/80 ring-1 ring-pink-200/60 hover:bg-white transition"
-              // onClick={() => setPage((p) => Math.max(p - 1, 1))}
-            >
-              Anterior
-            </button>
-            <span className="text-[#0f172a]/70">Página 1 de 1</span>
-            <button
-              type="button"
-              className="rounded-full px-3 py-1 bg-white/80 ring-1 ring-pink-200/60 hover:bg-white transition"
-              // onClick={() => setPage((p) => p + 1)}
-            >
-              Siguiente
-            </button>
-          </div>
+
         </section>
 
         <div className="h-10" />
