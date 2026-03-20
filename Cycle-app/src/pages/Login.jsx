@@ -36,9 +36,14 @@ export default function Login() {
             id: data.usuario.id,
             nombre: data.usuario.nombre,
             email: data.usuario.email,
+            tipo: data.usuario.tipo,
             provider: "php"
         }));
-          navigate("/Home");
+        if (data.usuario.email === "chobitscycle@gmail.com") {
+            navigate("/admin");
+          } else {
+            navigate("/Home");
+          }
         } else {
           alert(data.mensaje);
         }
@@ -85,6 +90,7 @@ export default function Login() {
               id: data.usuario.id,
               nombre: data.usuario.nombre,
               email: data.usuario.email,
+              tipo: data.usuario.tipo,
               provider: "google",
             })
           );

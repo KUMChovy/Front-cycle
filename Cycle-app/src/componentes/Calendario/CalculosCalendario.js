@@ -12,6 +12,28 @@ export const COLORES_CICLO = {
   ovulacion: "#1E88E5"
 }
 
+export const ICONOS_SVG = {
+  ligero: "gota",
+  moderado: "gota",
+  fuerte: "gota",
+  intenso: "gota",
+
+  bien: "feliz",
+  triste: "triste",
+  rabia: "dolor",
+  animo: "feliz",
+
+  colicos: "dolor",
+  cabeza: "dolor",
+  migraña: "dolor",
+  sin: "feliz",
+
+  dulce: "comida",
+  salado: "comida",
+  picante: "comida",
+  graso: "comida"
+}
+
 /**
  * Genera eventos del calendario:
  * - Fondos (menstruación, fértiles, ovulación)
@@ -56,13 +78,13 @@ export function generarEventosCiclo({
  * Crea el evento de síntoma compatible con FullCalendar.
  */
 
-export function crearEventoSintoma({ titulo, fechaISO }) {
+export function crearEventoSintoma({ titulo, fechaISO, icono }) {
   return {
-    title: titulo,
+    title: "",
     start: fechaISO,
     allDay: true,
-    extendedProps: { type: "symptom" },
-    classNames: ["evento-sintoma"] 
+    extendedProps: { type: "symptom", icono },
+    classNames: ["!bg-transparent", "!border-0", "!shadow-none", "!p-0"]
   }
 }
 
