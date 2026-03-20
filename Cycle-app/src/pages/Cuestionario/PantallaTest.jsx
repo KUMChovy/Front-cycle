@@ -13,6 +13,7 @@ export default function QuestionScreen({
 }) {
     const [selected, setSelected] = useState(null);
     const [age, setAge] = useState(22);
+    sesion()
 
     useEffect(() => {
         setSelected(selectedAnswer);
@@ -124,13 +125,16 @@ export default function QuestionScreen({
                     ) : (
                         /* ================== OPCIONES NORMALES ================== */
                         <div className="flex flex-col gap-4">
-                            {question.options.map((option) => {
+                            {question.options.map((option,index) => {
+                                const isObject = typeof option === "object";   // detecta objetos
+                                const value = isObject ? option.id : option;   // lo que se guarda
+                                const label = isObject ? option.label : option; // lo que se muestra
                                 const active = selected === option;
 
                                 return (
                                     <button
-                                        key={option}
-                                        onClick={() => handleSelect(option)}
+                                        key={isObject ? option.id : index}
+                                        onClick={() => handleSelect(value)}
                                         className={`
                     w-full rounded-full px-6 py-4
                     text-sm sm:text-base font-semibold
@@ -143,7 +147,7 @@ export default function QuestionScreen({
                     focus:outline-none focus:ring-4 focus:ring-pink-200
                   `}
                                     >
-                                        {option}
+                                        {label}
                                     </button>
                                 );
                             })}
