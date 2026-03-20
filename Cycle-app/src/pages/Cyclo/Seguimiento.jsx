@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Calendario from "../../componentes/Calendario/Calendario"
 import Modal from "../../componentes/Modals/Modal"
 import { usarSeguimientoCiclo } from "../../componentes/Calendario/useCalendario"
@@ -21,6 +21,7 @@ export default function PaginaCiclo() {
     const abrirModal = (tipo) => setModal({ abierto: true, tipo })
     const cerrarModal = () => { setModal({ abierto: false, tipo: null }); setSintomaSeleccionado(null); setErrorLocal(null) }
     const navigate = useNavigate()
+
 
     const alSeleccionarDia = (fechaISO) => {
         setFechaSeleccionada(fechaISO)
