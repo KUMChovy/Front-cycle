@@ -27,7 +27,7 @@ export default function Biblioteca() {
       ">
         {/* Título */}
         <header className="relative w-full overflow-hidden">
-          <div className="relative flex h-[180px] items-center justify-center md:h-[220px] lg:h-[260px]">
+          <div className="relative flex h-[50px] items-center justify-center md:h-[50px] lg:h-[260px]">
             <div className="relative z-[1] flex flex-col items-center text-center px-4">
               <h1 className="font-extrabold tracking-tight text-rose-900 text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[1.05]">
                 Biblioteca
@@ -37,7 +37,7 @@ export default function Biblioteca() {
         </header>
 
         {/* Links */}
-        <div className="mt-6 flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2">
           <a className="mt-6 w-full rounded-full bg-white/90 px-6 py-4 font-semibold text-black shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur transition-all duration-300 hover:bg-pink-400 hover:text-white hover:shadow-[0_14px_40px_rgba(251,113,133,0.45)] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-pink-200"
             href="https://www.tuasaude.com/es/ciclo-menstrual/" target="_blank" rel="noopener noreferrer">
             Hormonas explicadas Fácil
