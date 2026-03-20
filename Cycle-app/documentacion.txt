@@ -28,6 +28,7 @@ Template del fondo y content por si lo quieren usar
 
 
 
+
 ====================Instalcion de tailwindcss ==========================
 npm install -D tailwindcss@3.4.1 postcss autoprefixer
 >> npx tailwindcss init -p
@@ -97,3 +98,7 @@ VALUES
 19.4103,
 -99.0305);
 
+
+
+
+npm install @mercadopago/sdk-react

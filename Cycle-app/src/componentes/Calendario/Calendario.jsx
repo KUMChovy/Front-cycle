@@ -69,7 +69,7 @@ export default function Calendario(
 
     // ---- Exportar PDF ----
     const exportarPDF = () => {
-        sesion(); // verifica que haya sesión activa
+        sesion(); 
 
         const usuario = 
             JSON.parse(localStorage.getItem("usuarioPHP")) || 
