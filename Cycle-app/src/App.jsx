@@ -15,6 +15,7 @@ import Plan from "./pages/suscripcion/Plan";
 import ChatCycleView from "./pages/chatbot/Chatcycle";
 import ForoView from "./pages/forocycle/foro";
 import SeguimientoDia from "./pages/Cyclo/SeguimientoDia";
+import Admin from "./pages/admin/admin";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <Route path="/chatcycle" element={<ChatCycleView />} />
       <Route path="/foro" element={<ForoView />} /> 
       <Route path="/seguimiento-dia" element={<SeguimientoDia />} />
+      <Route path="/admin" element={<Admin />} />
 
     </Routes>
     </div>
