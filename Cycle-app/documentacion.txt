@@ -98,11 +98,11 @@ VALUES
 19.4103,
 -99.0305);
 
-<<<<<<< HEAD
 
 
 
 npm install @mercadopago/sdk-react
+
 =======
 ------No me pregunten, solo instalenlo si no les corre porque no lo pusieron xd
 npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core

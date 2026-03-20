@@ -1,4 +1,7 @@
+import { sesion } from "../../componentes/funciones/sesion";
+
 const handleCheckout = async (plan) => {
+
   try {
     console.log("Enviando plan:", plan);
     
@@ -56,11 +59,13 @@ const handleCheckout = async (plan) => {
 };
 
 export default function Plan() {
+  sesion();
+
   const cards = [
     {
       title: "Plan Básico",
       h2: "MXN 0 al mes",
-      text: ["Seguimiento del Ciclo", "Registro de Síntomas", "Historial de Ciclos"],
+      text: ["Seguimiento del Ciclo", "Registro de Síntomas", "Historial de Ciclos",],
       gradient: "bg-gradient-to-r from-[#ff84ab] to-[#ffc1d6]",
     },
     {
@@ -68,7 +73,7 @@ export default function Plan() {
       h2: "MXN 35 al mes",
       text: [
         "Mensajes Bot/Usuaria",
-        "Visualización de Clínicas Cercanos",
+        
         "Lista de clínicas",
         "Detalle de clínicas",
         "Biblioteca",
