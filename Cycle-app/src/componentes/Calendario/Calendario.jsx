@@ -6,6 +6,9 @@ import esLocale from "@fullcalendar/core/locales/es"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { sesion } from "../funciones/sesion";
+import { ICONOS_SVG } from "./CalculosCalendario"
+import { IconoSintoma } from "./IconosSintomas"
+import { obtenerIcono } from "./configSintomas"
 
 /**
  * Props:
@@ -53,23 +56,21 @@ export default function Calendario(
         alSeleccionarEvento?.(info.event)
     }
 
-    const renderDefault = (info) => {
-        if (info.event.extendedProps?.type !== "symptom") return null
+   const renderDefault = (info) => {
 
-        return (
-            <div
-                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/80 shadow-sm ring-1 ring-black/10"
-                title={info.event.title}
-                aria-label={`Síntoma: ${info.event.title}`}
-            >
-                🩹
-            </div>
-        )
-    }
+    const props = info.event.extendedProps || {}
 
+    if (props.type !== "symptom") return null
+
+    return (
+        <div className="flex justify-center items-center w-full h-full">
+            {obtenerIcono(props.icono)}
+        </div>
+    )
+}
     // ---- Exportar PDF ----
     const exportarPDF = () => {
-        sesion(); 
+        sesion(); // verifica que haya sesión activa
 
         const usuario = 
             JSON.parse(localStorage.getItem("usuarioPHP")) || 

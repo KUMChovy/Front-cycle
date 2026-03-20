@@ -7,8 +7,14 @@ import {
 } from "./CalculosCalendario"
 
 export function usarSeguimientoCiclo() {
-    const [inicioCiclo, setInicioCiclo] = useState(null) // ISO yyyy-mm-dd
-    const [sintomas, setSintomas] = useState([])
+
+    const [inicioCiclo, setInicioCiclo] = useState(() => {
+        return localStorage.getItem("inicioCiclo") || null
+    })
+
+    const [sintomas, setSintomas] = useState(() => {
+        return JSON.parse(localStorage.getItem("sintomasCiclo")) || []
+    })
 
     const { eventos, prediccion } = useMemo(() => {
         return generarEventosCiclo({
@@ -19,25 +25,52 @@ export function usarSeguimientoCiclo() {
         })
     }, [inicioCiclo, sintomas])
 
-    const marcarInicioCiclo = (fechaISO) => setInicioCiclo(fechaISO)
+    const marcarInicioCiclo = (fechaISO) => {
+        setInicioCiclo(fechaISO)
+        localStorage.setItem("inicioCiclo", fechaISO)
+    }
 
-    const agregarSintoma = ({ titulo, fechaISO }) => {
+    const agregarSintoma = ({ titulo, fechaISO, icono }) => {
+
         const t = (titulo || "").trim()
         if (!t) return
-        setSintomas((prev) => [...prev, crearEventoSintoma({ titulo: t, fechaISO })])
+
+        setSintomas(prev => {
+
+            const nuevo = [
+                ...prev,
+                crearEventoSintoma({ titulo: t, fechaISO, icono })
+            ]
+
+            localStorage.setItem("sintomasCiclo", JSON.stringify(nuevo))
+
+            return nuevo
+        })
+    }
+
+    const eliminarSintoma = ({ titulo, fechaISO }) => {
+
+        setSintomas(prev => {
+
+            const nuevo = prev.filter(
+                e => !(e.start === fechaISO && e.title === titulo)
+            )
+
+            localStorage.setItem("sintomasCiclo", JSON.stringify(nuevo))
+
+            return nuevo
+        })
     }
 
     const reiniciarTodo = () => {
+
         setInicioCiclo(null)
         setSintomas([])
+
+        localStorage.removeItem("inicioCiclo")
+        localStorage.removeItem("sintomasCiclo")
     }
-    const eliminarSintoma = ({ titulo, fechaISO }) => {
-        setSintomas((prev) =>
-            prev.filter(
-                (e) => !(e.start === fechaISO && e.title === titulo && e.extendedProps?.type === "symptom")
-            )
-        )
-    }
+
     return {
         inicioCiclo,
         sintomas,

@@ -38,7 +38,11 @@ export default function Login() {
             email: data.usuario.email,
             provider: "php"
         }));
-          navigate("/Home");
+        if (data.usuario.email === "chobitscycle@gmail.com") {
+            navigate("/admin");
+          } else {
+            navigate("/Home");
+          }
         } else {
           alert(data.mensaje);
         }

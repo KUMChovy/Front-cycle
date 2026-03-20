@@ -3,6 +3,7 @@ import Calendario from "../../componentes/Calendario/Calendario"
 import Modal from "../../componentes/Modals/Modal"
 import { usarSeguimientoCiclo } from "../../componentes/Calendario/useCalendario"
 import { sesion } from "../../componentes/funciones/sesion"
+import { useNavigate } from "react-router-dom"
 
 // Sintomas
 const OPCIONES_SINTOMAS = [
@@ -39,12 +40,19 @@ export default function PaginaCiclo() {
         setSintomaElegidoId(null)
     }
 
+    const navigate = useNavigate()
+
     // click en día
     const alSeleccionarDia = (fechaISO) => {
-        setFechaSeleccionada(fechaISO)
-        if (!inicioCiclo) abrirModal("ciclo")
-        else abrirModal("seleccionarSintoma")
-    }
+setFechaSeleccionada(fechaISO)
+
+if (!inicioCiclo) {
+abrirModal("ciclo")
+}
+else {
+navigate("/seguimiento-dia", { state: { fechaISO } })
+}
+}
 
     //  click en evento sintoma
     const alSeleccionarEvento = (evento) => {
@@ -208,7 +216,7 @@ export default function PaginaCiclo() {
                 >
                     <div className="flex items-start gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-rose-100 text-xl">
-                            🩹
+                            
                         </div>
                         <div>
                             <p className="text-sm font-extrabold text-gray-900">{sintomaSeleccionado?.titulo}</p>

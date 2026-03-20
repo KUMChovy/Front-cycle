@@ -10,6 +10,10 @@ export default function HomeAut() {
   sesion();
   const navigate = useNavigate();
 
+  const usuario =
+      JSON.parse(localStorage.getItem("usuarioPHP")) ||
+      JSON.parse(localStorage.getItem("usuarioGoogle"));
+
   return (
     <div className="fixed inset-0 overflow-hidden bg-[#FCE7F3]">
       {/* ===== Background ===== */}
@@ -45,7 +49,7 @@ export default function HomeAut() {
           </header>
 
           <h2 className="text-balance font-black tracking-tight text-black leading-[0.95] text-[clamp(1.85rem,4.6vw,3.4rem)]">
-            Bienvenida
+            Bienvenida {usuario.nombre}
           </h2>
 
 
