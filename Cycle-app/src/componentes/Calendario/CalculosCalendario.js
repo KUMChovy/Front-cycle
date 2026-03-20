@@ -43,37 +43,32 @@ export function generarEventosCiclo({
   inicioCiclo,
   sintomas = [],
   config = CONFIGURACION_CICLO,
-  colores = COLORES_CICLO
+  colores = COLORES_CICLO,
+  sinPrediccion = false        // 🆕
 }) {
   const lista = [...sintomas]
-
-  if (!inicioCiclo) {
-    return { eventos: lista, prediccion: "" }
-  }
+  if (!inicioCiclo) return { eventos: lista, prediccion: "" }
 
   const inicio = new Date(inicioCiclo)
 
   for (let i = 0; i < config.mesesPrediccion; i++) {
     const base = sumarDias(inicio, config.duracionCiclo * i)
-
-    // Menstruación
     for (let d = 0; d < config.diasMenstruacion; d++) {
       lista.push(eventoFondo(sumarDias(base, d), colores.menstruacion))
     }
-
-    // Ventana fértil + ovulación
     for (let f = config.ventanaFertil.inicio; f <= config.ventanaFertil.fin; f++) {
       const esOvulacion = f === config.diaOvulacion
       lista.push(eventoFondo(sumarDias(base, f), esOvulacion ? colores.ovulacion : colores.fertil))
     }
   }
 
+  // 🆕 Si está en monitoreo, no generar texto de predicción
+  if (sinPrediccion) return { eventos: lista, prediccion: "" }
+
   const proximo = sumarDias(inicio, config.duracionCiclo)
   const prediccion = `Próximo periodo estimado: ${proximo.toLocaleDateString("es-ES")}`
-
   return { eventos: lista, prediccion }
 }
-
 /**
  * Crea el evento de síntoma compatible con FullCalendar.
  */
@@ -87,6 +82,7 @@ export function crearEventoSintoma({ titulo, fechaISO, icono }) {
     classNames: ["!bg-transparent", "!border-0", "!shadow-none", "!p-0"]
   }
 }
+
 
 
 
