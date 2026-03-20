@@ -69,8 +69,8 @@ export default function Perfil() {
 
           {[
               { texto: "Ajustes de Aplicación", icono: "⚙️", accion:() => {/*placeholder de función en forma anónima */} },
-              { texto: "Foro", icono: "🗫", accion:() => {/*placeholder de función en forma anónima */} },
-              { texto: "Chatbot", icono: "🤖", accion:() => {/*placeholder de función en forma anónima */} },
+              { texto: "Foro", icono: "🗫", accion:() => navigate("/foro") },
+              { texto: "Chatbot", icono: "🤖", accion:() => navigate("/chatcycle") },
               { texto: "Recordatorios", icono: "⏰", accion:() => {/*placeholder de función en forma anónima */} },
               { texto: "Ajustes de privacidad", icono: "🛡️", accion:() => {/*placeholder de función en forma anónima */} },
               { texto: "Suscripción Premium", icono: "👑", accion:() => {/*placeholder de función en forma anónima */} },

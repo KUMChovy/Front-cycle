@@ -12,6 +12,8 @@ import Avatar from "./pages/SAvatar/Avatar";
 import Biblioteca from "./pages/Biblioteca/Biblioteca";
 import Layout from "./componentes/Layout";
 import Plan from "./pages/suscripcion/Plan";
+import ChatCycleView from "./pages/chatbot/Chatcycle";
+import ForoView from "./pages/forocycle/foro";
 
 
 function App() {
@@ -35,7 +37,9 @@ function App() {
       <Route path="/test" element={<Test />} />
       <Route path="/perfil" element={<Perfil />} /> 
       <Route path="/avatar" element={<Avatar />} /> 
-      <Route path="/plan" element={<Plan />} /> 
+      <Route path="/plan" element={<Plan />} />
+      <Route path="/chatcycle" element={<ChatCycleView />} />
+      <Route path="/foro" element={<ForoView />} /> 
 
     </Routes>
     </div>
