@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../componentes/funciones/logout";
 import { sesion } from "../componentes/funciones/sesion";
@@ -10,6 +11,36 @@ export default function Perfil() {
   const usuario =
     JSON.parse(localStorage.getItem("usuarioPHP")) ||
     JSON.parse(localStorage.getItem("usuarioGoogle"));
+
+  const [objetivo, setObjetivo] = useState("");
+  const [usoAppEsperado, setUsoAppEsperado] = useState("");
+
+    useEffect(() => {
+    if (!usuario?.id) return;
+
+    fetch("http://localhost/cycle_back/modelo/objetivo.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id_usuario: usuario.id
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.status === "ok") {
+          setObjetivo(data.objetivo || "");
+          setUsoAppEsperado(data.uso_app_esperado || "");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al obtener objetivos:", error);
+      });
+  }, []);
+
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -52,8 +83,17 @@ export default function Perfil() {
         {/* ===== Objetivo ===== */}
         <h3 className="mb-3 text-lg font-bold text-black">Mi objetivo:</h3>
         <div className="mb-6 flex flex-wrap gap-2">
-          <span className="rounded-full bg-pink-200 px-4 py-1 text-sm">Seguir mi ciclo</span>
-          <span className="rounded-full bg-pink-200 px-4 py-1 text-sm">Quedarme embarazada</span>
+          {objetivo && (
+            <span className="rounded-full bg-pink-200 px-4 py-1 text-sm">
+              {objetivo}
+            </span>
+          )}
+
+          {usoAppEsperado && (
+            <span className="rounded-full bg-pink-200 px-4 py-1 text-sm">
+              {usoAppEsperado}
+            </span>
+          )}
         </div>
 
         {/* ===== Lista de opciones ===== */}
