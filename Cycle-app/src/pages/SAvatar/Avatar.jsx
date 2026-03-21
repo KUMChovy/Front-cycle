@@ -171,8 +171,7 @@ export default function Avatar() {
         <div className="w-full">
           <button
             type="button"
-            onClick={handleSave}
-            disabled={!canSave}
+onClick={() => { handleSave(); navigate("/perfil"); }}            disabled={!canSave}
             className={`
               mx-auto block w-full rounded-2xl bg-[#F9A8D4]
               text-rose-950 font-semibold
