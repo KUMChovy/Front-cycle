@@ -19,12 +19,12 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            src: '/Cycle-app/src/assets/logo.png',
+            src: '/logo.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/Cycle-app/src/assets/logo.png',
+            src: '/logo.png',
             sizes: '512x512',
             type: 'image/png'
           }
