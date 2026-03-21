@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
-import calendario from "../assets/calendario.png";
+import calendario from "../assets/calendario.webp";
 import Imagen from "../componentes/Imagen";
 import { sesion } from "../componentes/funciones/sesion";
 
