@@ -38,7 +38,7 @@ export default function UserAvatar(){
 
       {avatar ? (
         <img
-          src={`/assets/avatars/${avatar}`}
+          src={`../../assets/${avatar}`}
           width="60"
           height="60"
           style={{borderRadius:"50%"}}
