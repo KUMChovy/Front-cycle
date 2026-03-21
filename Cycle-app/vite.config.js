@@ -10,6 +10,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'auto',   // ← agrega esta línea
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,png,webp}']
+      },
       manifest: {
         name: 'Cycle App',
         short_name: 'Cycle',
