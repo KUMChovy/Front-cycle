@@ -8,7 +8,7 @@ import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { sesion } from "../funciones/sesion";
 import { ICONOS_SVG } from "./CalculosCalendario"
 import { IconoSintoma } from "./IconosSintomas"
-import { obtenerIcono } from "./configSintomas"
+import { obtenerIcono } from "./ConfigSintomas"
 
 /**
  * Props:
