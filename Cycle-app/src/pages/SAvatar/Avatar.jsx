@@ -215,7 +215,7 @@ const STICKERS = Array.from({ length: 12 }, (_, i) => {
   return {
     id,
     label: `Avatar ${id}`,
-    src: new URL(`/assets/avatars/Designer${id}.png`, import.meta.url).href
+    src: new URL(`../../assets/avatars/Designer${id}.png`, import.meta.url).href
   };
 });
 
