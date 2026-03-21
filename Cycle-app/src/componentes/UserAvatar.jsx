@@ -10,7 +10,7 @@ export default function UserAvatar(){
       JSON.parse(localStorage.getItem("usuarioPHP")) ||
       JSON.parse(localStorage.getItem("usuarioGoogle"));
 
-    fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/obtenerAvatar.php",{
+    fetch("https://cycle-two-tau.vercel.app/modelo/obtenerAvatar.php",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -38,7 +38,7 @@ export default function UserAvatar(){
 
       {avatar ? (
         <img
-          src={`../../assets/avatars/${avatar}`}
+          src={`/src/assets/avatars/${avatar}`}
           width="60"
           height="60"
           style={{borderRadius:"50%"}}
