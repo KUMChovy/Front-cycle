@@ -10,7 +10,7 @@ export default function UserAvatar(){
       JSON.parse(localStorage.getItem("usuarioPHP")) ||
       JSON.parse(localStorage.getItem("usuarioGoogle"));
 
-    fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/obtenerAvatar.php",{
+    fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/obtenerAvatar.php",{ 
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -44,7 +44,7 @@ export default function UserAvatar(){
           style={{borderRadius:"50%"}}
         />
       ) : (
-        <div>Cargando avatar...</div>
+        <div>Cargando avatar..1.</div>
       )}
 
     </div>
