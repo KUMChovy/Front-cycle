@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost/cycle_back/modelo/ciclo.php";
+const BASE_URL = "https://salmon-mosquito-816172.hostingersite.com/modelo/ciclo.php";
 
 /* ─── obtener id_usuario del localStorage ─────────────────── */
 export function obtenerIdUsuario() {

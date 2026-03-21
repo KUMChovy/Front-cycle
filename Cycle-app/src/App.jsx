@@ -16,7 +16,7 @@ import ChatCycleView from "./pages/chatbot/Chatcycle";
 import ForoView from "./pages/forocycle/foro";
 import SeguimientoDia from "./pages/Cyclo/SeguimientoDia";
 import Admin from "./pages/admin/admin";
-import ProtectedPremium from "./componentes/funciones/protectedPremium"; 
+import ProtectedPremium from "./componentes/funciones/protectedPremium";
 
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/ciclo" element={<Ciclo />} />
-            <Route path="/clinicas" element={<ProtectedPremium><Clinicas /></ProtectedPremium>} />  
-            <Route path="/biblioteca" element={<ProtectedPremium><Biblioteca /></ProtectedPremium>} />          
+          <Route path="/clinicas" element={<ProtectedPremium><Clinicas /></ProtectedPremium>} />
+          <Route path="/biblioteca" element={<ProtectedPremium><Biblioteca /></ProtectedPremium>} />
         </Route>
 
         <Route path="/chatcycle" element={
@@ -35,7 +35,7 @@ function App() {
         } />
         <Route path="/foro" element={
           <ProtectedPremium>
-            <ForoView /> 
+            <ForoView />
           </ProtectedPremium>
         } />
 

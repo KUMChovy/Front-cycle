@@ -82,7 +82,7 @@ export default function Calendario(
         }
 
         window.open(
-            `http://localhost/cycle_back/control/pdf.php?correo=${encodeURIComponent(usuario.email)}`,
+            `https://salmon-mosquito-816172.hostingersite.com/control/pdf.php?correo=${encodeURIComponent(usuario.email)}`,
             "_blank"
         );
     };

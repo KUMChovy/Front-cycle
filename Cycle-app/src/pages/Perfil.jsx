@@ -18,7 +18,7 @@ export default function Perfil() {
     useEffect(() => {
     if (!usuario?.id) return;
 
-    fetch("http://localhost/cycle_back/modelo/objetivo.php", {
+    fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/objetivo.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

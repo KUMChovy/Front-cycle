@@ -16,7 +16,7 @@ export default function AdminDashboardSvg() {
   useEffect(() => {
     const obtenerDatosAdmin = async () => {
       try {
-        const response = await fetch("http://localhost/cycle_back/modelo/admin.php");
+        const response = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/admin.php");
         const data = await response.json();
 
         if (data.status === "ok") {

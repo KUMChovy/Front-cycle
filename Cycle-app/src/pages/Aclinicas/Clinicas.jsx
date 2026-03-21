@@ -13,7 +13,7 @@ export default function Clinicas() {
 
     useEffect(() => {
 
-        fetch("http://localhost/cycle_back/modelo/c_clinicas.php")
+        fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/c_clinicas.php")
             .then(res => res.json())
             .then(data => setClinics(data))
     }, [])

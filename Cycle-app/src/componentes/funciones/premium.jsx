@@ -9,7 +9,7 @@ export async function validarPremium() {
     if (!usuario.tipo) return false;
 
     // ✅ Consulta el tipo actualizado desde el backend
-    const response = await fetch("http://localhost/cycle_back/modelo/login_api.php", {
+    const response = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/login_api.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: usuario.email, auth: usuario.provider === "google" ? "google" : "check" }),

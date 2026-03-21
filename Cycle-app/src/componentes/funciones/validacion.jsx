@@ -8,7 +8,7 @@ export async function validar() {
     const usuario_id = usuario?.id_usuario ?? usuario?.id;
 
     try {
-        const res = await fetch("http://localhost/cycle_back/modelo/API_validacion.php", {
+        const res = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/API_validacion.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ usuario_id }),

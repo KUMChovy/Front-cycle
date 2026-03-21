@@ -27,7 +27,7 @@ export default function Avatar() {
 
     try {
 
-      const response = await fetch("http://localhost/cycle_back/modelo/Gavatar.php", {
+      const response = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/Gavatar.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

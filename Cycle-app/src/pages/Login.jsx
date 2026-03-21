@@ -18,7 +18,7 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost/cycle_back/modelo/login_api.php", {
+    fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/login_api.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function Login() {
         ).then((res) => res.json());
 
         const response = await fetch(
-          "http://localhost/cycle_back/modelo/login_api.php",
+          "https://salmon-mosquito-816172.hostingersite.com/modelo/login_api.php",
           {
             method: "POST",
             headers: {

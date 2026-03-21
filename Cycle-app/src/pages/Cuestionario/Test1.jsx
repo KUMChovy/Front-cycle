@@ -120,7 +120,7 @@ export default function Test1() {
             console.log("Payload enviado al PHP:", payload);
             console.log("cicloPref guardado:", localStorage.getItem("cicloPref"));
 
-            fetch("http://localhost/cycle_back/modelo/encuesta_bienvenida_api.php", {
+            fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/encuesta_bienvenida_api.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload),

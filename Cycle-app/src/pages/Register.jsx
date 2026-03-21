@@ -40,7 +40,7 @@ export default function Register() {
 
     try {
       const response = await fetch(
-        "http://localhost/cycle_back/modelo/registro_api.php",
+        "https://salmon-mosquito-816172.hostingersite.com/modelo/registro_api.php",
         {
           method: "POST",
           headers: {
@@ -91,7 +91,7 @@ export default function Register() {
 
         // enviar datos a la API de registro
         const response = await fetch(
-          "http://localhost/cycle_back/modelo/registro_api.php",
+          "https://salmon-mosquito-816172.hostingersite.com/modelo/registro_api.php",
           {
             method: "POST",
             headers: {

@@ -24,7 +24,7 @@ export default function ForgotPassword() {
         setMensaje("");
 
         try {
-            const response = await fetch("http://localhost/cycle_back/modelo/recu_con.php", {
+            const response = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/recu_con.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function ForgotPassword() {
         setLoading(true);
 
         try {
-            const response = await fetch("http://localhost/cycle_back/modelo/resetear_con.php", {
+            const response = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/resetear_con.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

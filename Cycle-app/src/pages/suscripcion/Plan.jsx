@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const handleCheckout = async (plan) => {
   try {
     console.log("Enviando plan:", plan);
-    const res = await fetch("http://localhost/cycle_back/control/create_preference.php", {
+    const res = await fetch("https://salmon-mosquito-816172.hostingersite.com/control/create_preference.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ plan }),
