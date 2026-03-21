@@ -19,8 +19,8 @@ export default defineConfig({
         short_name: 'Cycle',
         start_url: '/',
         display: 'standalone',
-        theme_color: ' bg-[#FCE7F3]',
-        background_color: ' bg-[#FCE7F3]',
+        theme_color: '#FCE7F3',
+        background_color: '#FCE7F3',
         icons: [
           {
             src: '/logo.png',
