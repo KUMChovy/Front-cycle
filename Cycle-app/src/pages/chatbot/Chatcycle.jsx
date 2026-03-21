@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect } from "react";
 import { validarPremium } from "../../componentes/funciones/premium";
 import LogoAvatar from "../../componentes/LogoAvatar";
 import logo from "../../assets/logo.png";
-import calendario from "../../assets/calendario.png";
+import calendario from "../../assets/calendario.webp";
 import Imagen from "../../componentes/Imagen";
 
 import Designer16 from "../../assets/chaticon/Designer16.png";
