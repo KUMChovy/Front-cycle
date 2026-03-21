@@ -2,7 +2,6 @@ import { useState, useCallback } from "react";
 import { sesion } from "../../componentes/funciones/sesion";
 import AvatarSticker from "../../componentes/AvatarSticker";
 
-
 export default function Avatar() {
   sesion();
   const [baseColor, setBaseColor] = useState(PALETTE[0].hex);
@@ -14,8 +13,8 @@ export default function Avatar() {
   const handleBack = useCallback(() => {
     history.back();
   }, []);
-  const handleSave = useCallback(async () => {
 
+  const handleSave = useCallback(async () => {
     if (!selectedSticker) return;
 
     const usuario =
@@ -26,21 +25,18 @@ export default function Avatar() {
     setSaveMsg({ type: null, text: "" });
 
     try {
-
       const response = await fetch("https://salmon-mosquito-816172.hostingersite.com/modelo/Gavatar.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          id_usuario: usuario.id,   // Aqui tambien cambia lo del ID de usuario
+          id_usuario: usuario.id,
           id_avatar: selectedSticker.id
-
         })
       });
 
       const data = await response.json();
-
       console.log(data);
 
       if (data.status === "ok") {
@@ -48,18 +44,12 @@ export default function Avatar() {
       } else {
         setSaveMsg({ type: "error", text: "No se pudo guardar" });
       }
-
     } catch (error) {
-
       setSaveMsg({ type: "error", text: "Error del servidor" });
-
     }
 
     setSaving(false);
-
   }, [selectedSticker]);
-
-
 
   return (
     <div className="fixed inset-0 overflow-auto bg-[#FCE7F3]">
@@ -89,7 +79,6 @@ export default function Avatar() {
           >
             ←
           </button>
-
           <h1 className="font-extrabold tracking-tight text-rose-900 text-[20px] sm:text-[22px]">
             Crear avatar
           </h1>
@@ -103,18 +92,12 @@ export default function Avatar() {
             aria-label="Vista previa del avatar"
           >
             {selectedSticker ? (
-              USE_EMOJI_FALLBACK ? (
-                <span className="text-[56px]" role="img" aria-label={selectedSticker.label}>
-                  {selectedSticker.emoji}
-                </span>
-              ) : (
-                <img
-                  src={selectedSticker.src}
-                  alt={selectedSticker.label}
-                  className="h-[84px] w-[84px] object-contain"
-                  draggable={false}
-                />
-              )
+              <img
+                src={selectedSticker.src}
+                alt={selectedSticker.label}
+                className="h-[84px] w-[84px] object-contain"
+                draggable={false}
+              />
             ) : (
               <AvatarSilhouette className="h-[84px] w-[84px] text-white/85" />
             )}
@@ -141,7 +124,6 @@ export default function Avatar() {
                 onClick={() => setSelectedSticker(s)}
               />
             ))}
-
           </div>
         </section>
 
@@ -192,7 +174,6 @@ export default function Avatar() {
   );
 }
 
-
 /** Silueta del avatar */
 function AvatarSilhouette({ className = "h-20 w-20", color = "currentColor" }) {
   return (
@@ -207,15 +188,19 @@ function AvatarSilhouette({ className = "h-20 w-20", color = "currentColor" }) {
 const PALETTE = [
   { id: "ice", hex: "#F472B6" },
 ];
-const USE_EMOJI_FALLBACK = false;
 
-const STICKERS = Array.from({ length: 12 }, (_, i) => {
-  const id = i + 1;
-
-  return {
-    id,
-    label: `Avatar ${id}`,
-    src: new URL(`../../assets/avatars/Designer${id}.png`, import.meta.url).href
-  };
-});
-
+// ✅ STICKERS con rutas corregidas para Vercel (public/assets/avatars/)
+const STICKERS = [
+  { id: 1,  label: "Avatar 1",  src: "/assets/avatars/Designer1-CKWJL7RQ.png"  },
+  { id: 2,  label: "Avatar 2",  src: "/assets/avatars/Designer2-CtI8CJZT.png"  },
+  { id: 3,  label: "Avatar 3",  src: "/assets/avatars/Designer3-BFJ9Q6_b.png"  },
+  { id: 4,  label: "Avatar 4",  src: "/assets/avatars/Designer4-C1BMDUCF.png"  },
+  { id: 5,  label: "Avatar 5",  src: "/assets/avatars/Designer5-eA3236r0.png"  },
+  { id: 6,  label: "Avatar 6",  src: "/assets/avatars/Designer6-DBatQej-.png"  },
+  { id: 7,  label: "Avatar 7",  src: "/assets/avatars/Designer7-dVpN5hKd.png"  },
+  { id: 8,  label: "Avatar 8",  src: "/assets/avatars/Designer8-nQFd4ybO.png"  },
+  { id: 9,  label: "Avatar 9",  src: "/assets/avatars/Designer9-Bd9R73rw.png"  },
+  { id: 10, label: "Avatar 10", src: "/assets/avatars/Designer10-BB_scHmC.png" },
+  { id: 11, label: "Avatar 11", src: "/assets/avatars/Designer11-BekdGMs4.png" },
+  { id: 12, label: "Avatar 12", src: "/assets/avatars/Designer12-DnzsI8ei.png" },
+];
