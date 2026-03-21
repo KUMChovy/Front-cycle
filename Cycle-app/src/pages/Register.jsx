@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { sesion } from "../componentes/funciones/sesion";
 
-import calendario from "../assets/calendario.png";
+import calendario from "../assets/calendario.webp";
 import Imagen from "../componentes/Imagen";
 
 export default function Register() {
