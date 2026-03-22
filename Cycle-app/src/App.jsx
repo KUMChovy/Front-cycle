@@ -50,6 +50,7 @@ function App() {
         <Route path="/plan" element={<Plan />} />
         <Route path="/seguimiento-dia" element={<SeguimientoDia />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </div>
   );

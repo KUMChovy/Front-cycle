@@ -1,31 +1,36 @@
+
+
 import { sesion } from "../../componentes/funciones/sesion";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
+// ✅ NUEVO — lee el email del localStorage para mandarlo al backend
 const handleCheckout = async (plan) => {
+  const usuarioPHP    = JSON.parse(localStorage.getItem("usuarioPHP"));
+  const usuarioGoogle = JSON.parse(localStorage.getItem("usuarioGoogle"));
+  const usuario = usuarioPHP || usuarioGoogle;
+
   try {
-    console.log("Enviando plan:", plan);
     const res = await fetch("https://salmon-mosquito-816172.hostingersite.com/control/create_preference.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ plan }),
+      body: JSON.stringify({ 
+        plan, 
+        email: usuario?.email // ✅ NUEVO — manda el email
+      }),
     });
 
     const textResponse = await res.text();
     let data;
-    try {
-      data = JSON.parse(textResponse);
-    } catch (e) {
-      console.error("Error parseando JSON:", e);
-      alert("Error: La respuesta no es JSON válido. Ver consola.");
-      return;
-    }
+    try { data = JSON.parse(textResponse); }
+    catch (e) { alert("Error: respuesta no válida."); return; }
 
     if (data.redirect) { window.location.href = data.redirect; return; }
-    if (data.error) { alert("Error: " + data.error); return; }
+    if (data.error)    { alert("Error: " + data.error); return; }
     if (data.init_point) { window.location.href = data.init_point; }
     else { alert("Error: No se pudo crear la preferencia de pago."); }
+
   } catch (error) {
     alert("Error de conexión: " + error.message);
   }
