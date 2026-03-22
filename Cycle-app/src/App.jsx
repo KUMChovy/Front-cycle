@@ -17,6 +17,7 @@ import ForoView from "./pages/forocycle/foro";
 import SeguimientoDia from "./pages/Cyclo/SeguimientoDia";
 import Admin from "./pages/admin/admin";
 import ProtectedPremium from "./componentes/funciones/protectedPremium";
+import Success from "./pages/suscripcion/Success"; 
 
 function App() {
   return (
