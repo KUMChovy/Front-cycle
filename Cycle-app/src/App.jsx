@@ -21,7 +21,7 @@ import Success from "./pages/suscripcion/Success";
 
 function App() {
   return (
-    <div className="p-6">
+    <div>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/ciclo" element={<Ciclo />} />
