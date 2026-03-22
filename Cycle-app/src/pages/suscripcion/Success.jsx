@@ -13,7 +13,7 @@ export default function Success() {
 
         if (email) {
           const res  = await fetch(
-            `https://salmon-mosquito-816172.hostingersite.com/modelo/success.php?external_reference=${encodeURIComponent(email)}`
+            `https://salmon-mosquito-816172.hostingersite.com/control/success.php?external_reference=${encodeURIComponent(email)}`
           );
           const data = await res.json();
 
