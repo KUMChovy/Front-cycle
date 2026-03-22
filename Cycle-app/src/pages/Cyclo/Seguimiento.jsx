@@ -118,7 +118,7 @@ export default function PaginaCiclo() {
                 </div>
 
                 {/* ===== Content ===== */}
-                <div className="relative z-10 px-5 pt-6 pb-12">
+                <div className="relative z-10 px-2 pt-2 pb-12">
 
                     {cargando && (
                         <div className="mb-4 rounded-2xl bg-white/70 p-3 text-center text-sm font-semibold text-gray-500 shadow">
